@@ -1,0 +1,78 @@
+﻿@model nDeath.Models.Parabola
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/chartist.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/chartist.min.js" )></script>
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("Index"))
+    {
+        @Html.ValidationSummary()
+        <div>
+            <table class="table">
+                <tr class="tr1">
+                    <td class="td1">Function:</td>
+                    <td class="td2">y=</td>
+                    <td class="td3">@Html.TextBoxFor(parabola => parabola.A)</td>
+                    <td class="td4">x^2+</td>
+                    <td class="td5">@Html.TextBoxFor(parabola => parabola.B)</td>
+                    <td class="td6">x+</td>
+                    <td class="td7">@Html.TextBoxFor(parabola => parabola.C)</td>
+                </tr>
+                <tr class="tr2">
+                    <td class="td1">Step:</td>
+                    <td class="td2">@Html.TextBoxFor(parabola => parabola.Step)</td>
+                    <td class="td3"></td>
+                    <td class="td4"></td>
+                    <td class="td5"></td>
+                    <td class="td6"></td>
+                    <td class="td7"></td>
+                </tr>
+                <tr class="tr3">
+                    <td class="td1">From:</td>
+                    <td class="td2">@Html.TextBoxFor(parabola => parabola.X1)</td>
+                    <td class="td3">to</td>
+                    <td class="td4">@Html.TextBoxFor(parabola => parabola.X2)</td>
+                    <td class="td5"></td>
+                    <td class="td6"></td>
+                    <td class="td7"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="btnPlot">
+            <input type="submit" value="Plot" />
+        </div>
+    }
+    <div class="ct-chart ct-golden-section"></div>
+    <script>
+        jQuery.getJSON("points.json", function (points) {
+            var x = [];
+            var y = [];
+            for (var i = 0, j = 0; i < points.length; i += 2, j++) {
+                x[j] = points[i];
+                y[j] = points[i + 1];
+            }
+            var options = {
+                width: '800px',
+                height: '600px'
+            };
+            new Chartist.Line('.ct-chart', {
+                labels: x,
+                series: [y]
+            }, options);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿.table {
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+input {
+    width: 28px;
+    height: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+td {
+    padding: 3px;
+    border: 1px solid #808080;
+    font-weight: bold;
+}
+
+td:first-child{
+    font-weight:normal;
+}
+
+.td1{
+    text-align:right;
+}
+
+.td2 {
+    text-align: right;
+}
+
+.td3{
+    text-align:center;
+}
+
+.btnPlot {
+    padding: 5px;
+    width: 70px;
+}
+
+.btnPlot input {
+    width: 70px;
+    height: 40px;
+    font-family: Arial;
+    font-size: 22px;
+    color: white;
+    border: 2px solid dodgerblue;
+    border-radius: 5px;
+    background-color: deepskyblue;
+    cursor: pointer;
+}
+
+.btnPlot:hover input {
+    border: 2px solid blue;
+}
+
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
