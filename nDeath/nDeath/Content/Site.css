@@ -32,12 +32,12 @@ td:first-child{
     text-align:center;
 }
 
-.btnPlot {
+.button {
     padding: 5px;
     width: 70px;
 }
 
-.btnPlot input {
+.button input {
     width: 70px;
     height: 40px;
     font-family: Arial;
@@ -49,7 +49,7 @@ td:first-child{
     cursor: pointer;
 }
 
-.btnPlot:hover input {
+.button:hover input {
     border: 2px solid blue;
 }
 

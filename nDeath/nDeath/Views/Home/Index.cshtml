@@ -51,7 +51,7 @@
                 </tr>
             </table>
         </div>
-        <div class="btnPlot">
+        <div class="button">
             <input type="submit" value="Plot" />
         </div>
     }
@@ -60,9 +60,9 @@
         jQuery.getJSON("points.json", function (points) {
             var x = [];
             var y = [];
-            for (var i = 0, j = 0; i < points.length; i += 2, j++) {
-                x[j] = points[i];
-                y[j] = points[i + 1];
+            for (var i = 0; i < points.length; i += 1) {
+                x[i] = points[i].X;
+                y[i] = points[i].Y;
             }
             var options = {
                 width: '800px',
